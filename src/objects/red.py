@@ -1,4 +1,4 @@
 class Red:
     def __init__(self):
-      self.recompensa = 0
+      self.recompensa = 1
       self.color = 'red'

@@ -4,26 +4,15 @@ import tkinter as tk
 from src.util import width, height,listaObjeto
 from src.ia.robo import Robo
 
-pixels = 60
-    
-class Map:
+class MapLearn:
     def __init__(self):
         self.menorPontuacao = 10000
         self.countMelhorCaminho = 0
         self.robo = Robo()
-        self.robo.porcentagem = 100
-
+        
         self.verde = [0,0]
         self.vermelho = [0,0]
 
-        self.window = tk.Tk()
-        self.window.title("QLearning")
-        self.canvas_widget = tk.Canvas(
-            self.window, 
-            bg='white', 
-            height=height * pixels, 
-            width=width * pixels
-        )
         self.init()
                 
 
@@ -52,17 +41,3 @@ class Map:
                 self.menorPontuacao = self.robo.pontos
                 self.countMelhorCaminho = 1
         self.robo.pontos = 0
-
-
-    def render(self):
-        for linha in range(width):
-            for coluna in range(height):
-                objeto = listaObjeto[linha][coluna]
-
-                x1, y1, x2, y2 = linha*pixels, coluna*pixels, linha*pixels+pixels, coluna*pixels+pixels
-                self.canvas_widget.create_rectangle(x1, y1, x2, y2, fill=objeto.color, outline="gray")
-        
-        y1, x1, y2, x2 = self.robo.x*pixels, self.robo.y*pixels, self.robo.x*pixels+pixels, self.robo.y*pixels+pixels
-        self.canvas_widget.create_rectangle(x1+10, y1+10, x2-10, y2-10, fill=self.robo.color, outline="gray")
-  
-        self.canvas_widget.pack()
