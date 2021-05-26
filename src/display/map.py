@@ -1,5 +1,4 @@
-import numpy as np    
-import tkinter as tk 
+import Tkinter as tk 
 
 from src.util import width, height,listaObjeto
 from src.ia.robo import Robo
@@ -11,7 +10,6 @@ class Map:
         self.menorPontuacao = 10000
         self.countMelhorCaminho = 0
         self.robo = Robo()
-        self.robo.porcentagem = 100
 
         self.verde = [0,0]
         self.vermelho = [0,0]
@@ -55,6 +53,7 @@ class Map:
 
 
     def render(self):
+        self.canvas_widget.delete('all')
         for linha in range(width):
             for coluna in range(height):
                 objeto = listaObjeto[linha][coluna]

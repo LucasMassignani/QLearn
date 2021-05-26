@@ -5,10 +5,7 @@ from src.display.map import Map
 mapa = Map()
 
 while mapa.countMelhorCaminho<=200:
-  mapa.render()
   mapa.logic()
-  mapa.window.update_idletasks()
-  mapa.window.update()
 
 mapa.robo.porcentagem = 100
 
