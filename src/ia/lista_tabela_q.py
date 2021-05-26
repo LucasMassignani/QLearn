@@ -1,4 +1,5 @@
 from src.ia.tabela_q import TabelaQ
+from src.image import height, width
 
 class ListaTabelaQ:
     def __init__(self, objetos):
@@ -31,7 +32,7 @@ class ListaTabelaQ:
               auxX = linha_j + 1 
               auxY = coluna_i
 
-              if auxX <= 9:
+              if auxX <= height-1:
                 auxItem = objetos[auxY][auxX]
                 if auxItem.recompensa:
                   tabelaQ = TabelaQ()
@@ -49,7 +50,7 @@ class ListaTabelaQ:
               auxY = coluna_i + 1
 
 
-              if auxY <= 11:
+              if auxY <= width-1:
                 auxItem = objetos[auxY][auxX]
                 if auxItem.recompensa:
                   tabelaQ = TabelaQ()

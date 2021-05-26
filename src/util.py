@@ -1,4 +1,3 @@
-from PIL import Image
 
 from src.objects.no_color import NoColor
 from src.objects.green import Green
@@ -7,12 +6,9 @@ from src.objects.black import Black
 from src.objects.white import White
 
 from src.ia.lista_tabela_q import ListaTabelaQ
+from src.image import height, width, mapaImg
 
-
-mapaImg = Image.open('src/assets/mapa.png')
-width, height = mapaImg.size
-
-listaObjeto = [[0 for i in range(10)] for i in range(12)]
+listaObjeto = [[0 for i in range(height)] for i in range(width)]
 
 def rgb2hex(r, g, b):
     return '#{:02x}{:02x}{:02x}'.format(r, g, b)
@@ -21,7 +17,11 @@ def montarMapa():
     pix = mapaImg.load()
     for linha in range(width):
         for coluna in range(height):
-            r, g, b = pix[linha, coluna]
+            try:
+                r, g, b = pix[linha, coluna]
+            except:
+                r, g, b, a = pix[linha, coluna]
+
             posicao = rgb2hex(r, g, b)
             objeto = NoColor()
             
