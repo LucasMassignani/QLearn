@@ -21,7 +21,7 @@ pip install Pillow </br>
 # Como criar mapas personalizados
 - Dentro da pasta ./src/assets crie uma nova imagem (se preferir pode usar a imagem mapa.png como base); </br>
 - Utilize o seu programa de preferência para editar a imagem, lembre-se cada pixel da imagem corresponde a uma nova posição no mapa; </br>
-- Dentro do arquivo ./src/util.py atualize o nome "src/assets/mapa.png" para o nome da nova imagem; </br>
+- Dentro do arquivo ./src/image.py atualize o nome "src/assets/mapa.png" para o nome da nova imagem; </br>
  
 ## Cores da imagem:
 - #ba68c8 - Bloco branco, onde será possível do robô se mover; </br>
